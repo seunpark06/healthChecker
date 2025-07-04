@@ -11,4 +11,5 @@ public class OpenAIConfig {
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder.build();
     }
+
 }

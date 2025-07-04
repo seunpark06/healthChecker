@@ -1,31 +1,22 @@
 package PT_BO.healthChecker.controller;
 
-import com.theokanning.openai.completion.chat.ChatCompletionRequest;
-import com.theokanning.openai.completion.chat.ChatMessage;
+import PT_BO.healthChecker.dto.ChatRequest;
+import PT_BO.healthChecker.dto.ChatResponse;
+import PT_BO.healthChecker.service.SimpleRagService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.prompt.Prompt;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-// 테스트용 컨트롤러
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/chat")
+@RequestMapping("/api")
 public class ChatController {
 
-    private final ChatClient chatClient;
+    private final SimpleRagService simpleRagService;
 
-//    public ChatController(ChatClient.Builder chatClientBuilder) {
-//        this.chatClient = chatClientBuilder.build();
-//    }
-
-    @GetMapping("/ai")
-    String generation(String userInput) {
-        return this.chatClient.prompt()
-                .user(userInput)
-                .call()
-                .content();
+    @PostMapping("/advice")
+    public ChatResponse generate(@RequestBody ChatRequest request) {
+        String result = simpleRagService.ask(request.getMessage()); // ← 이게 핵심
+        return new ChatResponse(result != null ? result : "응답이 없습니다.");
     }
 }
