@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: healthChecker
+
+  ai:
+    openai:
+      api-key: your-api-key-is-here
+      base-url: https://api.openai.com
+      chat:
+        model: gpt-3.5-turbo
+      embedding:
+        model: text-embedding-3-small
