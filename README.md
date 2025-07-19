@@ -59,9 +59,9 @@ healthChecker/
 
 ```
 ### 화면 예시
-![화면 예시 1](imges/healthchecker1.png)
+![화면 예시 1](images/healthchecker1.png)
 ![화면 예시 2](images/healthchecker2.png)
-![화면 예시 3](images/healthchecker3.png.png)
+![화면 예시 3](images/healthchecker3.png)
 
 ### 향후 발전 방향
 - 본 프로젝트는 개발 소모임에서 단기간 기획/제작된 프로젝트로, 기획부터 배포까지 전 과정을 경험하며, 빠르게 프로토타입을 구현해보는 것을 목표로 삼았습니다.
